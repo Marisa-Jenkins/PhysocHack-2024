@@ -5,15 +5,22 @@
         "agnlum",
         "agnredshift",
         "axvline",
+        "bhmass",
+        "blackholedata",
+        "bulgemass",
         "cova",
+        "dtype",
         "emlinecont",
         "ipywidgets",
+        "Kormendy",
         "lineflux",
         "linepos",
         "mpatches",
         "sdssagn",
+        "semilogy",
         "wlmask",
         "xlim",
-        "ylim"
+        "ylim",
+        "yscale"
     ]
 }
