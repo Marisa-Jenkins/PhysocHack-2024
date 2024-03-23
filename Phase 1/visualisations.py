@@ -11,7 +11,6 @@ M_sun = 1.99e30 #units is kg
 au = 1.5e11 # the distance of the earth to the sun in m
 ly = 9.46e15 # lightyear in m
 c = 2.998e8 # speed of light in m/s
-c = 2.998e8 # speed of light in m/s
 
 def kepler_velocity(a, M):
     """
@@ -43,7 +42,6 @@ def bh_interactive(manual=True, log=False):
     ##We will not be looking at distances in meters, instead, lets use astronimcal units
     scale_by = au
     scale_by_name = 'Astronomical Units'
-
 
 
     def f(r_blr, bhmass):
@@ -103,6 +101,7 @@ def bh_interactive(manual=True, log=False):
         plt.title("Orbiting a black hole")
         plt.show()
 
+
     if log:
         blr_slider = widgets.FloatText(
                     value=7.5,
@@ -148,6 +147,7 @@ def analyze_spectrum(manual=True):
     spectrum = np.loadtxt('spectrum.txt', delimiter=',')
     wavelength = spectrum[:,0]
     flux = spectrum[:,1]
+
     def f(cont, linepos, velocity, lineflux):
         #creating the figure
         plt.figure(2)
@@ -162,6 +162,7 @@ def analyze_spectrum(manual=True):
         plt.axvline(4960*(1+z), ls=':', c='b')
         plt.axvline(4863*(1+z), ls='--', c='r')
         plt.plot(wl, emlinecont(cont, linepos, velocity, lineflux), ls='-', c='r')
+
     cont_slider = widgets.FloatSlider(
         value=15,
         min=10,
@@ -185,6 +186,7 @@ def analyze_spectrum(manual=True):
         orientation='horizontal',
         readout=True,
         readout_format='.1f')
+
     velocity_slider = widgets.FloatSlider(
         value=1000,
         min=100,
@@ -196,6 +198,7 @@ def analyze_spectrum(manual=True):
         orientation='horizontal',
         readout=True,
         readout_format='.1f')
+
     lineflux_slider = widgets.FloatSlider(
         value=1,
         min=0.1,
@@ -229,9 +232,11 @@ def fit_spectrum(manual=True):
     wl = full_wavelength[wlmask]
     flux = full_flux[wlmask]
     z=0.4563313
+
     def f(cont, linepos, velocity, lineflux):
         #creating the figure
         linefit = emlinecont(cont, linepos, velocity, lineflux)
+
         fig, (ax0, ax1) = plt.subplots(1, 2, figsize=(20,10))
         ax0.plot(wl, flux, ls='-', c='k', lw=1)
         ax0.set_ylabel('Flux')
